@@ -9,15 +9,16 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
     join_request = update.chat_join_request
     user = join_request.from_user
 
-    # Envoi du message privé
+    # Envoi du message privé automatique
     await context.bot.send_message(
         chat_id=user.id,
         text=(
             "🚨 ALERTE CONFIANCE 🚨\n\n"
             "➡️ CONFIANCE 99% 🔥\n\n"
             "Rejoins le canal ici 👇\n"
-            f"{SECOND_CHANNEL}"
+            f"🔗 {SECOND_CHANNEL}"
         )
+    )
 
 app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(ChatJoinRequestHandler(join_request))
