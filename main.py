@@ -18,13 +18,6 @@ async def join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "Rejoins le canal ici 👇\n"
             f"{SECOND_CHANNEL}"
         )
-    )
-
-    # Accepte automatiquement la demande
-    await context.bot.approve_chat_join_request(
-        chat_id=join_request.chat.id,
-        user_id=user.id
-    )
 
 app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(ChatJoinRequestHandler(join_request))
